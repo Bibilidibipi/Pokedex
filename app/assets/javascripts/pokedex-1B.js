@@ -3,7 +3,9 @@ Pokedex.RootView.prototype.renderPokemonDetail = function (pokemon) {
   $detail.append('<img src="' + pokemon.get('image_url') + '">');
   var $details = $("<ul>");
   pokemon.pairs().forEach(function (attribute) {
-    $details.append("<li>" + attribute[0] + ": " + attribute[1] + "</li>");
+    if(attribute[0] !== 'image_url') {
+      $details.append("<li>" + attribute[0] + ": " + attribute[1] + "</li>");
+    }
   });
   $detail.append($details);
   var $toys = $("<ul>");
@@ -12,9 +14,7 @@ Pokedex.RootView.prototype.renderPokemonDetail = function (pokemon) {
   this.$pokeDetail.html($detail);
   var rootView = this;
   pokemon.fetch({success: function () {
-    pokemon.toys().each(function (toy) {
-      rootView.addToyToList(toy);
-    });
+    rootView.renderToysList(pokemon.toys());
   }});
 };
 

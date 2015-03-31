@@ -7,11 +7,16 @@ Pokedex.RootView.prototype.reassignToy = function (event) {
   toy.save({}, {
     success: function(resp) {
       oldPoke.toys().remove(toy);
-      rootView.renderPokemonDetail(oldPoke);
+      rootView.renderToysList(oldPoke.toys());
       rootView.$toyDetail.empty();
     }
   });
 };
 
 Pokedex.RootView.prototype.renderToysList = function (toys) {
+  var rootView = this;
+  this.$pokeDetail.find(".toys").empty();
+  toys.each(function (toy) {
+    rootView.addToyToList(toy);
+  });
 };

@@ -99,7 +99,7 @@ body {
   margin-left: 100px;
 }
 
-.toy {
+/* .toy {
   border: thin solid tomato;
   padding: 4px;
   border-radius: 2px;
@@ -107,10 +107,21 @@ body {
 }
 .toy:hover {
   cursor: pointer;
-}
+} */
 
 .detail img {
   float: left;
   max-width: 300px;
   max-height: 200px;
+}
+
+.toys li {
+  border: thin solid tomato;
+  padding: 4px;
+  border-radius: 2px;
+  margin: 2px;
+}
+
+.toys li:hover {
+  cursor: pointer;
 }
